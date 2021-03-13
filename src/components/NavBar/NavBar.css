@@ -1,0 +1,49 @@
+
+#upload-icon, #hamburger-icon, #bell-icon {
+    font-size: 30px !important;
+    color: rgb(80, 80, 80);
+}
+
+.icon-btn {
+    padding: 7px !important;
+}
+
+.icon-btn:hover {
+    transition: 0.5s;
+    background-color: rgb(221, 220, 220) !important;
+}
+
+.NavBar {
+    padding: 10px 3px;
+}
+
+#profile-icon {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin: 4px;
+  }
+
+.NavBar, #right-components, #left-components {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#search-bar {
+    width: 100%;
+}
+
+#right-components{
+    width: 150px;
+    margin: 0px 16px 0px 10px;
+}
+
+#left-components{
+    margin: 0px 10px 0px 8px;
+}
+
+#center-components {
+    width: 80%;
+    max-width: 600px;
+}
