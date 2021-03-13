@@ -7,7 +7,7 @@ export default class SearchBar extends Component {
             <div className="search-bar">
                 <form>
                     <input id="search-bar" type="text" placeholder="Search.." name="search"></input>
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button type="submit"><i className="fa fa-search"></i></button>
                 
                 </form>
             </div>
