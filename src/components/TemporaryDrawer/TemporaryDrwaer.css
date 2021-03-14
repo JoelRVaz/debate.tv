@@ -1,0 +1,14 @@
+
+#hamburger-icon {
+    font-size: 30px !important;
+    color: rgb(104, 103, 103);
+}
+
+.icon-btn {
+    padding: 7px !important;
+}
+
+.icon-btn:hover {
+    transition: 0.5s;
+    background-color: rgb(221, 220, 220) !important;
+}

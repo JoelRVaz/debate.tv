@@ -24,6 +24,11 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import ReportIcon from '@material-ui/icons/Report';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
+import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
+import IconButton from '@material-ui/core/IconButton';
+import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
+import './TemporaryDrwaer.css';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,10 +39,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function SwipeableTemporaryDrawer() {
-
-  const classes = useStyles();
-
+export default function TemporaryDrawer() {
 
   const [test, tester] = React.useState(false)
 
@@ -48,8 +50,11 @@ export default function SwipeableTemporaryDrawer() {
 
   return (
     <div>
-          <Button onClick={opener}>left</Button>
+        <IconButton className="icon-btn" onClick={opener}>
+          <MenuOutlinedIcon id="hamburger-icon"></MenuOutlinedIcon>
+        </IconButton>
           <SwipeableDrawer
+            status={test}
             anchor={'left'}
             open={test}
             onClose={opener}
@@ -82,13 +87,15 @@ export default function SwipeableTemporaryDrawer() {
       ))}
       <Divider />
 
-      {[['Library', <VideoLibraryIcon />], ['History',  <HistoryIcon />], ['Your videos', <MovieIcon />] ,['Watch later',  <ScheduleIcon />], ['Liked videos', <ThumbUpAltIcon />]].map((text, index) => (
+
+      {[['Settings', <SettingsIcon />], ['Report History',  <ReportIcon />], ['Help', <HelpOutlineIcon />] ,['Send Feedback',  <AnnouncementIcon />]].map((text, index) => (
         
         <ListItem button key={text[0]}>
           <ListItemIcon>{text[1]}</ListItemIcon>
           <ListItemText primary={text[0]} />
         </ListItem>
       ))}
+
 
     </div>
           </SwipeableDrawer>

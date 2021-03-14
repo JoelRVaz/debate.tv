@@ -4,7 +4,9 @@ import './NavBar.css';
 import IconButton from '@material-ui/core/IconButton';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
-import PublishOutlinedIcon from '@material-ui/icons/PublishOutlined';
+import AdjustIcon from '@material-ui/icons/Adjust';
+import TemporaryDrawer from '../TemporaryDrawer/TemporaryDrwaer.js';
+
 
 export default class NavBar extends Component {
 
@@ -13,16 +15,14 @@ export default class NavBar extends Component {
         return (
             <div className="NavBar">
                 <div id="left-components">
-                    <IconButton className="icon-btn">
-                        <MenuOutlinedIcon className="icons" id="hamburger-icon"></MenuOutlinedIcon>
-                    </IconButton>
+                    <TemporaryDrawer ></TemporaryDrawer>
                 </div>
                     <div id="center-components">
                         <SearchBar></SearchBar>
                     </div>
                 <div id="right-components">
                     <IconButton className="icon-btn">
-                        <PublishOutlinedIcon className="icons" id="upload-icon"></PublishOutlinedIcon>
+                        <AdjustIcon className="icons" id="upload-icon"></AdjustIcon>
                     </IconButton>
                     <IconButton className="icon-btn">
                         <NotificationsNoneIcon className="icons" id="bell-icon"></NotificationsNoneIcon>
