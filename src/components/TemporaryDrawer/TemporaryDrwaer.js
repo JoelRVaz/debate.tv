@@ -10,77 +10,88 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Icon from '@material-ui/core/Icon';
+import { green } from '@material-ui/core/colors';
+import HomeIcon from '@material-ui/icons/Home';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
+import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
+import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
+import HistoryIcon from '@material-ui/icons/History';
+import MovieIcon from '@material-ui/icons/Movie';
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import SettingsIcon from '@material-ui/icons/Settings';
+import ReportIcon from '@material-ui/icons/Report';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import AnnouncementIcon from '@material-ui/icons/Announcement';
 
-const useStyles = makeStyles({
-  list: {
-    width: 250,
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > span': {
+      margin: theme.spacing(2),
+    },
   },
-  fullList: {
-    width: 'auto',
-  },
-});
+}));
+
 
 export default function SwipeableTemporaryDrawer() {
+
   const classes = useStyles();
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
 
-    setState({ ...state, [anchor]: open });
-  };
+  const [test, tester] = React.useState(false)
 
-  const list = (anchor) => (
-    <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-      })}
+  const opener  = () => {
+    tester(!test);
+  }
+
+
+  return (
+    <div>
+          <Button onClick={opener}>left</Button>
+          <SwipeableDrawer
+            anchor={'left'}
+            open={test}
+            onClose={opener}
+            onOpen={opener}
+          >
+       <div
+      style={{width: 250}}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      onClick={opener}
+      onKeyDown={opener}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
+
+        {[['Home', <HomeIcon />], ['Trending',  <WhatshotIcon />], ['Subsriptions',  <SubscriptionsIcon />]].map((text, index) => (
+        
+          <ListItem button key={text[0]}>
+            <ListItemIcon>{text[1]}</ListItemIcon>
+            <ListItemText primary={text[0]} />
           </ListItem>
         ))}
       </List>
       <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
 
-  return (
-    <div>
-      {['left', 'right', 'top', 'bottom'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
-          >
-            {list(anchor)}
-          </SwipeableDrawer>
-        </React.Fragment>
+      {[['Library', <VideoLibraryIcon />], ['History',  <HistoryIcon />], ['Your videos', <MovieIcon />] ,['Watch later',  <ScheduleIcon />], ['Liked videos', <ThumbUpAltIcon />]].map((text, index) => (
+        
+        <ListItem button key={text[0]}>
+          <ListItemIcon>{text[1]}</ListItemIcon>
+          <ListItemText primary={text[0]} />
+        </ListItem>
       ))}
+      <Divider />
+
+      {[['Library', <VideoLibraryIcon />], ['History',  <HistoryIcon />], ['Your videos', <MovieIcon />] ,['Watch later',  <ScheduleIcon />], ['Liked videos', <ThumbUpAltIcon />]].map((text, index) => (
+        
+        <ListItem button key={text[0]}>
+          <ListItemIcon>{text[1]}</ListItemIcon>
+          <ListItemText primary={text[0]} />
+        </ListItem>
+      ))}
+
+    </div>
+          </SwipeableDrawer>
     </div>
   );
 }
