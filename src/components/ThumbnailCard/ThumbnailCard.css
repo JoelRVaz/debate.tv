@@ -1,7 +1,5 @@
 
-#ThumbnailCard {
-    height: 230px;
-    width: 242.71px;
+.ThumbnailCard {
     display: flex;
     flex-direction: column;   
     font-size: 14px;
@@ -12,6 +10,10 @@
     object-fit: cover;
     object-position: 50% 50%;
     border-radius: 10px;
+}
+
+.rto {
+  margin: 50px;
 }
 
 .video-bottom-section {
