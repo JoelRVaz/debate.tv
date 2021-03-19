@@ -12,3 +12,16 @@
     transition: 0.5s;
     background-color: rgb(221, 220, 220) !important;
 }
+
+.MuiListItem-gutters {
+    padding: 5px 25px !important;
+}
+
+.MuiListItemText-primary {
+    font-size: 15px !important;
+}
+
+.MuiSvgIcon-root {
+    font-size: 22.5px !important;
+}
+

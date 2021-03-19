@@ -30,14 +30,6 @@ import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import './TemporaryDrwaer.css';
 
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > span': {
-      margin: theme.spacing(2),
-    },
-  },
-}));
-
 
 export default function TemporaryDrawer() {
 
@@ -61,7 +53,7 @@ export default function TemporaryDrawer() {
             onOpen={opener}
           >
        <div
-      style={{width: 250}}
+      style={{width: 230}}
       role="presentation"
       onClick={opener}
       onKeyDown={opener}
@@ -72,11 +64,13 @@ export default function TemporaryDrawer() {
         
           <ListItem button key={text[0]}>
             <ListItemIcon>{text[1]}</ListItemIcon>
-            <ListItemText primary={text[0]} />
+            <ListItemText className="litem" primary={text[0]} />
           </ListItem>
         ))}
       </List>
-      <Divider />
+      <Divider className="divider" />
+      
+      <List>
 
       {[['Library', <VideoLibraryIcon />], ['History',  <HistoryIcon />], ['Your videos', <MovieIcon />] ,['Watch later',  <ScheduleIcon />], ['Liked videos', <ThumbUpAltIcon />]].map((text, index) => (
         
@@ -85,9 +79,12 @@ export default function TemporaryDrawer() {
           <ListItemText primary={text[0]} />
         </ListItem>
       ))}
+
+      </List>
+
       <Divider />
 
-
+      <List>
       {[['Settings', <SettingsIcon />], ['Report History',  <ReportIcon />], ['Help', <HelpOutlineIcon />] ,['Send Feedback',  <AnnouncementIcon />]].map((text, index) => (
         
         <ListItem button key={text[0]}>
@@ -95,7 +92,7 @@ export default function TemporaryDrawer() {
           <ListItemText primary={text[0]} />
         </ListItem>
       ))}
-
+      </List>
 
     </div>
           </SwipeableDrawer>
